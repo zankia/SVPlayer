@@ -142,8 +142,8 @@ public class SVP extends JavaPlugin {
 			try {
 				Class.forName( "me.confuser.banmanager.BmAPI" );
 				sender.sendMessage(ChatColor.GOLD + "Joueur muté ? "
-							+ (BmAPI.isMuted(playerName) ? (ChatColor.GREEN + "Oui") : (ChatColor.RED + "Non"))
-							+ ChatColor.GOLD + "\nJoueur banni ? "
+							+ (BmAPI.isMuted(playerName) ? (ChatColor.GREEN + "Oui") : (ChatColor.RED + "Non")));
+				sender.sendMessage(ChatColor.GOLD + "Joueur banni ? "
 							+ (BmAPI.isBanned(playerName) ? (ChatColor.GREEN + "Oui") : (ChatColor.RED +"Non")));
 	
 				if(isAdminPerformed) {
@@ -177,17 +177,17 @@ public class SVP extends JavaPlugin {
 					e.printStackTrace();
 				}
 				sender.sendMessage(ChatColor.GOLD + "Adresse : "
-						+ ChatColor.YELLOW + address
-						+ ChatColor.GOLD + "\nAdresse IP : "
+						+ ChatColor.YELLOW + address);
+				sender.sendMessage(ChatColor.GOLD + "Adresse IP : "
 						+ ChatColor.YELLOW + ip);
 				
 			}
 
 			sender.sendMessage(ChatColor.GOLD + "Première connexion : "
-						+ ChatColor.YELLOW + dateFormat.format(new Date(target.getFirstPlayed()))
-					+ ChatColor.GOLD + "\nDernière connexion : "
-						+ ChatColor.YELLOW + dateFormat.format(new Date(target.getLastPlayed()))
-					+ ChatColor.AQUA + "\nIl est le "
+						+ ChatColor.YELLOW + dateFormat.format(new Date(target.getFirstPlayed())));
+			sender.sendMessage(ChatColor.GOLD + "Dernière connexion : "
+						+ ChatColor.YELLOW + dateFormat.format(new Date(target.getLastPlayed())));
+			sender.sendMessage(ChatColor.AQUA + "Il est le "
 						+ ChatColor.DARK_AQUA + targetFile.getPosition()
 						+ ChatColor.AQUA + (targetFile.getPosition() != 1 ? "ème" : "er")
 						+ " joueur à avoir rejoint le serveur.");
