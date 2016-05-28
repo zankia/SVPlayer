@@ -1,4 +1,4 @@
-package fr.zankia.SVPlayer;
+package fr.zankia.svplayer;
 
 
 import java.util.List;
