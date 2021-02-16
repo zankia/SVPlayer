@@ -1,7 +1,7 @@
 name: SVPlayer
-main: fr.zankia.SVPlayer.SVP
-version: 1.6.5
-description: New Players handler
+main: fr.zankia.svplayer.SVP
+version: 1.7.0
+description: New players handler
 author: zankia
 depend: [Essentials]
 
