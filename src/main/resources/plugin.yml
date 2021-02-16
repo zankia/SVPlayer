@@ -1,7 +1,8 @@
 name: SVPlayer
 main: fr.zankia.svplayer.SVP
-version: 1.7.0
 description: New players handler
+version: 1.7.0
+api-version: 1.16
 author: zankia
 depend: [Essentials]
 
@@ -9,10 +10,12 @@ commands:
   infos:
     description: Display player informations.
     usage: /infos [NomDuJoueur]
+    permission: svplayer.infos
   svplayer:
     description: Plugin management command.
     aliases: [svp]
     usage: /svplayer reload|update
+    permission: svplayer.admin
 
 permissions:
   svplayer.*:
