@@ -4,17 +4,16 @@ description: @description@
 version: @version@
 api-version: @api@
 author: @author@
-depend: [Essentials]
 
 commands:
-  infos:
+  bvn:
     description: Display player informations.
-    usage: /infos [NomDuJoueur]
-    permission: svplayer.infos
+    usage: /bvn
+    permission: svplayer.bvn
   svplayer:
     description: Plugin management command.
     aliases: [svp]
-    usage: /svplayer reload|update
+    usage: /svplayer reload
     permission: svplayer.admin
 
 permissions:
