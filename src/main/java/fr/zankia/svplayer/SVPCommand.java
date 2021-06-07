@@ -7,6 +7,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class SVPCommand implements CommandExecutor {
+    public static final String NO_NEW_PLAYER = "Erreur: il n'y a pas de nouveau joueur à accueillir";
     private final SVP plugin;
     public static final String NO_PERMISSION = "Erreur : Vous n'avez pas la permission pour cette commande.";
 
@@ -33,6 +34,8 @@ public class SVPCommand implements CommandExecutor {
     private boolean bvnCommand(CommandSender sender) {
         if (!sender.hasPermission("svplayer.bvn")) {
             sender.sendMessage(ChatColor.RED + NO_PERMISSION);
+        } else if (plugin.getChatReplacer().getNewPlayer() == null) {
+            sender.sendMessage(ChatColor.RED + NO_NEW_PLAYER);
         } else {
             ((Player) sender).chat(plugin.getChatReplacer().getMessage());
         }

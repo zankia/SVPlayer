@@ -4,8 +4,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
@@ -18,6 +16,10 @@ public class ChatReplacer implements Listener {
     public ChatReplacer(String[] replaceList, List<String> possibilities) {
         this.replaceList = replaceList;
         this.possibilities = possibilities;
+    }
+
+    public String getNewPlayer() {
+        return newPlayer;
     }
 
     public void setNewPlayer(String newPlayer) {
@@ -33,11 +35,6 @@ public class ChatReplacer implements Listener {
     }
 
     public String getMessage() {
-        try {
-            Random random = SecureRandom.getInstanceStrong();
-            return possibilities.get(random.nextInt(possibilities.size())).replace("{player}", newPlayer);
-        } catch (NoSuchAlgorithmException e) {
-            return "";
-        }
+        return possibilities.get(new Random().nextInt(possibilities.size())).replace("{player}", newPlayer);
     }
 }

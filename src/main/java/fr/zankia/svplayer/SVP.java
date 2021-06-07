@@ -36,5 +36,7 @@ public class SVP extends JavaPlugin {
         String[] replaceList = Objects.requireNonNull(getConfig().getString("welcomereplace")).split(", ");
         List<String> possibilities = getConfig().getStringList("welcome");
         chatReplacer = new ChatReplacer(replaceList, possibilities);
+        getLogger().info("Will replace " + getConfig().getString("welcomereplace") + " ->");
+        possibilities.forEach(getLogger()::info);
     }
 }

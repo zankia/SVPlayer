@@ -3,7 +3,7 @@ import org.apache.tools.ant.filters.ReplaceTokens
 apply plugin: 'java'
 
 group 'fr.zankia.svplayer'
-version '2.0.0'
+version '2.1'
 description 'New players handler'
 
 repositories {
@@ -16,7 +16,7 @@ dependencies {
 
 processResources {
     filter(ReplaceTokens, tokens: [
-            name: name,
+            name: project.name,
             main: project.group + '.SVP',
             description: project.description,
             version: version,
