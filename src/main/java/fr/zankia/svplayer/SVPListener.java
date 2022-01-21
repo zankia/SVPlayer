@@ -1,8 +1,6 @@
 package fr.zankia.svplayer;
 
-
 import org.bukkit.Bukkit;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -22,14 +20,15 @@ public class SVPListener implements Listener {
             return;
         }
 
-        final FileConfiguration configs = plugin.getConfig();
-        plugin.getChatReplacer().setNewPlayer(e.getPlayer().getName());
+        var configs = plugin.getConfig();
+        var chatReplacer = plugin.getChatReplacer();
+        chatReplacer.setNewPlayer(e.getPlayer().getName());
 
-        plugin.getServer().getPluginManager().registerEvents(plugin.getChatReplacer(), plugin);
+        plugin.getServer().getPluginManager().registerEvents(chatReplacer, plugin);
 
         Bukkit.getScheduler().runTaskLater(
                 plugin,
-                () -> AsyncPlayerChatEvent.getHandlerList().unregister(plugin.getChatReplacer()),
+                () -> AsyncPlayerChatEvent.getHandlerList().unregister(chatReplacer),
                 configs.getLong("welcomecooldown") * 20L
         );
     }

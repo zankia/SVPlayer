@@ -1,9 +1,7 @@
 package fr.zankia.svplayer;
 
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.List;
 import java.util.Objects;
 
 public class SVP extends JavaPlugin {
@@ -16,7 +14,7 @@ public class SVP extends JavaPlugin {
 
         initChatReplacer();
 
-        CommandExecutor executor = new SVPCommand(this);
+        var executor = new SVPCommand(this);
         Objects.requireNonNull(getServer().getPluginCommand("bvn")).setExecutor(executor);
         Objects.requireNonNull(getServer().getPluginCommand("svplayer")).setExecutor(executor);
         getLogger().info("Enabled");
@@ -33,8 +31,8 @@ public class SVP extends JavaPlugin {
     }
 
     public void initChatReplacer() {
-        String[] replaceList = Objects.requireNonNull(getConfig().getString("welcomereplace")).split(", ");
-        List<String> possibilities = getConfig().getStringList("welcome");
+        var replaceList = Objects.requireNonNull(getConfig().getString("welcomereplace")).split(", ");
+        var possibilities = getConfig().getStringList("welcome");
         chatReplacer = new ChatReplacer(replaceList, possibilities);
         getLogger().info("Will replace " + getConfig().getString("welcomereplace") + " ->");
         possibilities.forEach(getLogger()::info);
